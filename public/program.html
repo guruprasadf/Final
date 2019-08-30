@@ -1,0 +1,85 @@
+
+<html>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script>
+
+var array = [1,3,4,5,7,9];
+
+	function myFunction (){
+	    var value = document.getElementById("input").value ;
+		s(value.split("-")[0],value.split("-")[1])
+	}
+	function s (left ,right){
+	left = parseInt(left);
+	right = parseInt(right);
+	var errorMessage = "";
+	var finalList = "";
+	var duplicates = [];
+	var initialList = "";
+		if(right){
+			for(i = left; i <=right ; i++){
+				if(array.indexOf(i) == -1){
+					array.push(i);
+				}
+				else{
+					duplicates.push(i);
+				}
+			}}
+			else{
+				if(array.indexOf(parseInt(left)) == -1){
+					array.push(left);
+				}
+				else{
+					duplicates.push(left);
+				}
+			}
+			
+		
+		 if(duplicates.length > 0){
+			 errorMessage = "Duplicates found : " ;
+			 errorMessage += duplicates.join(",");
+		 }
+		  if(array.length > 0){
+			 finalList = "Final list : " ;
+			 finalList += array.sort(function(a, b){return a-b}).join(",");
+		 }
+		
+		 document.getElementById("error").innerHTML = errorMessage;
+		 document.getElementById("final").innerHTML = finalList;
+		}
+		
+	
+</script>
+<style>
+ .input {
+	
+	display:inline-block !important;
+	width:auto
+ }
+ .container{
+		margin-top:20px
+ }
+ .result{
+	padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    color: #888888;
+ }
+</style>
+<body>
+<div>
+<div class="container" align="center">
+ 
+	
+	<input type="text" class="form-control input" placeholder="Enter Number" name="fname" id="input">
+	<button type="button" class="btn btn-primary button" onclick="myFunction()">Calculate</button>
+ <div id="initial">  <div>
+  <div id="error" class=""></div>
+<div id ="final" class=""></div>
+</div
+</div>
+</body>
+</html>
